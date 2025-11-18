@@ -17,6 +17,9 @@
     --text-color: #172317;
     --bg-color: #fff;
 }
+body{
+    overflow-x: hidden;
+}
 
 a{
     text-decoration: none;
@@ -467,5 +470,12 @@ header{
 
 
 
+
+}
+@media (max-width: 430px) {
+  
+    .home {
+        padding-left: 360px;
+    }
 
 }

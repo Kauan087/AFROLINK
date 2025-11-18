@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carregando post...</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://cdn.boxicons.com/3.0.3/fonts/basic/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <header>
+        <div class="nav container">
+         <a href="https://iematech.netlify.app/"class="logo"> <img height="auto" width="105px" src="assets/logo.png" alt=""></a>
+         <a href="https://iema.ma.gov.br/" class="logo"> <img height="auto" width="120px" src="assets/logo-iema.png" alt=""></a>
+        </div>
+    </header>
+
+    <section class="post-detalhe container">
+        
+        <a href="index.html" class="back-button">
+            <i class='bx bx-left-arrow-alt'></i>
+            Voltar para o Blog
+        </a>
+
+        <img src="" alt="" class="post-detalhe-img" id="post-detail-image">
+
+        <div class="post-content-wrapper">
+            
+            <div class="post-detalhe-header">
+                <h2 class="categoria" id="post-detail-category"></h2>
+                <h1 class="post-title" id="post-detail-title"></h1>
+                <span class="post-date" id="post-detail-date"></span>
+            </div>
+
+            <div class="post-detalhe-content" id="post-detail-content">
+                </div>
+            
+        </div> </section>
+
+    <div class="footer container">
+        <p>&#169; Kauan Ferreira and Iema-Tech ALL right Reserved</p>
+        <div class="social">
+           <a href="#"><i class='bx bxl-github'></i></a>
+           <a href="#"><i class='bx bxl-instagram'></i></a>           
+           <a href="#"><i class='bx bxl-linkedin'></i></a>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // 1. Pega os dados que foram salvos no sessionStorage
+            var postImage = sessionStorage.getItem('postImage');
+            var postCategory = sessionStorage.getItem('postCategory');
+            var postTitle = sessionStorage.getItem('postTitle');
+            var postDate = sessionStorage.getItem('postDate');
+            var postContent = sessionStorage.getItem('postContent');
+
+            // 2. Verifica se os dados existem (se não, volta pra home)
+            if (postTitle) {
+                // 3. Preenche os elementos da página
+                document.title = postTitle; 
+                $('#post-detail-image').attr('src', postImage);
+                $('#post-detail-category').text(postCategory);
+                $('#post-detail-title').text(postTitle);
+                $('#post-detail-date').text(postDate);
+                $('#post-detail-content').html(postContent); 
+            } else {
+                // Se acessou a página direto, volta pro index
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>

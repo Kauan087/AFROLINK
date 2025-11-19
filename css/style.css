@@ -17,7 +17,7 @@
     --text-color: #172317;
     --bg-color: #fff;
 }
-body{
+html, body{
     overflow-x: hidden;
 }
 
